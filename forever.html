@@ -1,0 +1,733 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Beginning, Our Forever ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #e8d4f8 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Hearts Background */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0.3;
+            animation: float-up 15s infinite;
+            color: #ff6b9d;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* SECTION 1 - HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 182, 193, 0.3), transparent 70%);
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            color: #d63384;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(214, 51, 132, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 20px rgba(214, 51, 132, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 30px rgba(214, 51, 132, 0.6);
+            }
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #6c3483;
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .counter-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px 50px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.2);
+        }
+
+        .counter-title {
+            font-size: 1.2em;
+            color: #d63384;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .counter {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .counter-item {
+            text-align: center;
+        }
+
+        .counter-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #d63384;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .counter-label {
+            font-size: 0.9em;
+            color: #6c3483;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .scroll-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #d63384 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .scroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.6);
+        }
+
+        /* SECTION 2 - TIMELINE */
+        .timeline-section {
+            min-height: 100vh;
+            padding: 100px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 80px;
+            text-shadow: 0 0 20px rgba(214, 51, 132, 0.2);
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #ff6b9d 0%, #d63384 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            margin-bottom: 80px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+            text-align: right;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.2);
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #d63384 100%);
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 0 20px rgba(214, 51, 132, 0.6);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(214, 51, 132, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(214, 51, 132, 1);
+            }
+        }
+
+        .timeline-emoji {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .timeline-date {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #d63384;
+            margin-bottom: 10px;
+        }
+
+        .timeline-title {
+            font-size: 1.1em;
+            color: #6c3483;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* SECTION 3 - MESSAGE */
+        .message-section {
+            min-height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 100px 20px;
+        }
+
+        .message-card {
+            max-width: 700px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(214, 51, 132, 0.3);
+            text-align: center;
+        }
+
+        .message-text {
+            font-size: 1.3em;
+            color: #6c3483;
+            line-height: 2;
+            font-weight: 400;
+            text-shadow: 0 0 10px rgba(214, 51, 132, 0.1);
+        }
+
+        /* SECTION 4 - VALENTINE QUESTION */
+        .valentine-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .valentine-card {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(214, 51, 132, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            transition: all 0.5s ease;
+        }
+
+        .valentine-question {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3em;
+            color: #d63384;
+            margin-bottom: 50px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .valentine-btn {
+            padding: 20px 50px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #ff6b9d 0%, #d63384 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.4);
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(214, 51, 132, 0.6);
+        }
+
+        .no-btn {
+            background: #f0f0f0;
+            color: #666;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease, font-size 0.3s ease;
+        }
+
+        .no-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .response-message {
+            display: none;
+            margin-top: 40px;
+            font-size: 1.8em;
+            color: #d63384;
+            font-weight: 600;
+            animation: fadeInScale 0.5s ease;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b9d;
+            position: absolute;
+            animation: confetti-fall 3s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Heart Burst */
+        .heart-burst {
+            position: fixed;
+            font-size: 30px;
+            pointer-events: none;
+            animation: burst 1s ease-out forwards;
+        }
+
+        @keyframes burst {
+            0% {
+                opacity: 1;
+                transform: scale(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(3) rotate(180deg);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1.2em;
+            color: #6c3483;
+            font-style: italic;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            .counter {
+                gap: 15px;
+            }
+
+            .counter-value {
+                font-size: 2em;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .section-title {
+                font-size: 2.2em;
+            }
+
+            .valentine-question {
+                font-size: 2em;
+            }
+
+            .valentine-btn {
+                font-size: 1.2em;
+                padding: 15px 35px;
+            }
+
+            .message-text {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <div class="container">
+        <!-- SECTION 1: HERO -->
+        <section class="hero">
+            <h1>To The Love of My Life 💖</h1>
+            <p>Our story began on 16 November 2025… and it's only getting more beautiful.</p>
+            
+            <div class="counter-box">
+                <div class="counter-title">Together since 16 Nov 2025</div>
+                <div class="counter">
+                    <div class="counter-item">
+                        <div class="counter-value" id="days">0</div>
+                        <div class="counter-label">Days</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-value" id="hours">0</div>
+                        <div class="counter-label">Hours</div>
+                    </div>
+                    <div class="counter-item">
+                        <div class="counter-value" id="minutes">0</div>
+                        <div class="counter-label">Minutes</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="scroll-btn" onclick="scrollToTimeline()">Scroll to Our Story ↓</button>
+        </section>
+
+        <!-- SECTION 2: TIMELINE -->
+        <section class="timeline-section" id="timeline">
+            <h2 class="section-title">Our Love Story 💕</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-emoji">💫</div>
+                        <div class="timeline-date">16 Nov 2025 – Our First Meeting</div>
+                        <div class="timeline-title">"The day destiny introduced me to my forever."</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-emoji">💞</div>
+                        <div class="timeline-date">15 Dec – First Family Meet</div>
+                        <div class="timeline-title">"When our worlds officially connected."</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-emoji">☕</div>
+                        <div class="timeline-date">11 Jan – Our First Outing</div>
+                        <div class="timeline-title">"Simple day. Lifetime memory."</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-emoji">✈️</div>
+                        <div class="timeline-date">30 Jan – First Travel Together</div>
+                        <div class="timeline-title">"New places, same heartbeat."</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-emoji">🎬</div>
+                        <div class="timeline-date">30 Jan – First Movie Together</div>
+                        <div class="timeline-title">"From watching a story… to becoming one."</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: MESSAGE -->
+        <section class="message-section">
+            <div class="message-card">
+                <p class="message-text">
+                    Every moment since 16 November has felt like fate writing our love story. Every smile, every call, every memory — they mean more to me than words can express. You are my today, my tomorrow, and my always.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECTION 4: VALENTINE QUESTION -->
+        <section class="valentine-section">
+            <div class="valentine-card" id="valentineCard">
+                <h2 class="valentine-question">Will You Be My Valentine? 💘</h2>
+                <div class="button-container">
+                    <button class="valentine-btn yes-btn" onclick="handleYes()">YES ❤️</button>
+                    <button class="valentine-btn no-btn" id="noBtn" onclick="handleNo()">NO 🙈</button>
+                </div>
+                <div class="response-message" id="responseMessage"></div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            Made with ❤️ for my forever.
+        </div>
+    </div>
+
+    <script>
+        // Floating Hearts Background
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartSymbols = ['💕', '💖', '💗', '💝', '💞'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 15000);
+            }, 3000);
+        }
+
+        // Live Counter
+        function updateCounter() {
+            const startDate = new Date('2025-11-16T00:00:00');
+            const now = new Date();
+            const diff = now - startDate;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+        }
+
+        // Timeline Animation on Scroll
+        function animateTimeline() {
+            const items = document.querySelectorAll('.timeline-item');
+            items.forEach(item => {
+                const rect = item.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+
+        // Smooth Scroll
+        function scrollToTimeline() {
+            document.getElementById('timeline').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Valentine Question Logic
+        let noClickCount = 0;
+        const noMessages = [
+            "Are you sure? 😢",
+            "Think again! 💭",
+            "Don't break my heart! 💔",
+            "Last chance! 🥺",
+            "I'll keep asking 😌",
+            "You know the right answer 😉",
+            "Pretty please? 🙏",
+            "Come on... 😊"
+        ];
+
+        function handleNo() {
+            const noBtn = document.getElementById('noBtn');
+            
+            if (noClickCount < noMessages.length) {
+                noBtn.textContent = noMessages[noClickCount];
+                noClickCount++;
+            }
+
+            // Make button smaller after each click
+            const currentSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
+            noBtn.style.fontSize = (currentSize * 0.9) + 'px';
+            
+            // Move button slightly
+            const randomX = (Math.random() - 0.5) * 50;
+            const randomY = (Math.random() - 0.5) * 50;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+
+        function handleYes() {
+            const card = document.getElementById('valentineCard');
+            const responseMsg = document.getElementById('responseMessage');
+            
+            // Change background
+            document.body.style.background = 'linear-gradient(135deg, #ffb6d9 0%, #ffc0e3 50%, #ff9dce 100%)';
+            
+            // Show message
+            responseMsg.textContent = "You just made me the happiest person alive 💖 Forever starts again today.";
+            responseMsg.style.display = 'block';
+            
+            // Hide buttons
+            document.querySelector('.button-container').style.display = 'none';
+            
+            // Create heart burst
+            createHeartBurst();
+            
+            // Create confetti
+            createConfetti();
+        }
+
+        function createHeartBurst() {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝', '💞'];
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-burst';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.top = Math.random() * window.innerHeight + 'px';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 1000);
+                }, i * 100);
+            }
+        }
+
+        function createConfetti() {
+            const colors = ['#ff6b9d', '#d63384', '#ff9dce', '#ffc0e3', '#b8a9ff'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-10px';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Initialize
+        createFloatingHearts();
+        updateCounter();
+        setInterval(updateCounter, 60000); // Update every minute
+
+        // Scroll animations
+        window.addEventListener('scroll', animateTimeline);
+        animateTimeline(); // Check on load
+    </script>
+</body>
+</html>
